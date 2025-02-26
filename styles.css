@@ -6,6 +6,7 @@ body {
     height: 100vh;
     background-color: #f0f0f0;
     margin: 0;
+    direction: rtl;
 }
 
 .game-container {
@@ -22,7 +23,7 @@ body {
     font-size: 16px;
 }
 
-#guess-button {
+#guess-button, #start-button {
     padding: 5px 10px;
     font-size: 16px;
     margin-left: 10px;
