@@ -1,7 +1,7 @@
 const topics = {
-    programming: ['פייתון', 'ג׳אווה', 'קוטלין', 'ג׳אווהסקריפט'],
-    animals: ['פיל', 'ג׳ירפה', 'קנגורו', 'דולפין'],
-    countries: ['ברזיל', 'קנדה', 'צרפת', 'גרמניה']
+    programming: ['פייתון', 'גאווה', 'קוטלין', 'גאווהסקריפט', 'רובי', 'סוויפט', 'סי', 'סי פלוס פלוס'],
+    animals: ['פיל', 'גירפה', 'קנגורו', 'דולפין', 'אריה', 'נמר', 'זברה', 'קרנף'],
+    countries: ['ברזיל', 'קנדה', 'צרפת', 'גרמניה', 'ישראל', 'איטליה', 'יפן', 'סין']
 };
 
 let word = '';
@@ -16,6 +16,8 @@ const guessInput = document.getElementById('guess-input');
 const guessButton = document.getElementById('guess-button');
 const message = document.getElementById('message');
 const attemptsDisplay = document.getElementById('attempts');
+const restartButton = document.getElementById('restart-button');
+const visitCountDisplay = document.getElementById('visit-count');
 
 function chooseWord(topic) {
     const words = topics[topic];
@@ -47,19 +49,23 @@ function checkGuess() {
     if (!wordDisplay.textContent.includes('_')) {
         message.textContent = 'כל הכבוד! ניחשת את המילה.';
         guessButton.disabled = true;
+        restartButton.style.display = 'block';
     } else if (attempts === 0) {
         message.textContent = `נגמר המשחק! המילה הייתה '${word}'.`;
         guessButton.disabled = true;
+        restartButton.style.display = 'block';
     }
 }
 
 startButton.addEventListener('click', () => {
     const selectedTopic = document.getElementById('topics').value;
+    const difficulty = document.getElementById('difficulty').value;
     word = chooseWord(selectedTopic);
     guessedLetters = new Set();
-    attempts = 6;
+    attempts = difficulty === 'easy' ? 10 : 6;
     message.textContent = '';
     guessButton.disabled = false;
+    restartButton.style.display = 'none';
     displayWord();
     attemptsDisplay.textContent = `ניסיונות שנותרו: ${attempts}`;
     topicSelection.style.display = 'none';
@@ -67,3 +73,20 @@ startButton.addEventListener('click', () => {
 });
 
 guessButton.addEventListener('click', checkGuess);
+
+restartButton.addEventListener('click', () => {
+    topicSelection.style.display = 'block';
+    game.style.display = 'none';
+});
+
+function updateVisitCount() {
+    let visitCount = localStorage.getItem('visitCount');
+    if (!visitCount) {
+        visitCount = 0;
+    }
+    visitCount++;
+    localStorage.setItem('visitCount', visitCount);
+    visitCountDisplay.textContent = visitCount;
+}
+
+updateVisitCount();

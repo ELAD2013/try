@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>משחק ניחוש מילים</title>
+    <title>משחק ניחוש מילים - WordMaster</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="game-container">
-        <h1>משחק ניחוש מילים</h1>
+        <h1>WordMaster - משחק ניחוש מילים</h1>
         <div id="topic-selection">
             <label for="topics">בחר נושא:</label>
             <select id="topics">
                 <option value="programming">שפות תכנות</option>
                 <option value="animals">חיות</option>
                 <option value="countries">מדינות</option>
+            </select>
+            <label for="difficulty">בחר רמת קושי:</label>
+            <select id="difficulty">
+                <option value="easy">קל</option>
+                <option value="hard">קשה</option>
             </select>
             <button id="start-button">התחל משחק</button>
         </div>
@@ -24,8 +29,13 @@
             <button id="guess-button">נחש</button>
             <p id="message"></p>
             <p id="attempts">ניסיונות שנותרו: 6</p>
+            <button id="restart-button" style="display: none;">חזור לדף הבית</button>
         </div>
     </div>
+    <footer>
+        <p>&copy; 2025 WordMaster. כל הזכויות שמורות.</p>
+        <p>מספר ביקורים באתר: <span id="visit-count">0</span></p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>

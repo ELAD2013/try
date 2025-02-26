@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -15,6 +16,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
 }
 
 #guess-input {
@@ -23,10 +25,16 @@ body {
     font-size: 16px;
 }
 
-#guess-button, #start-button {
+#guess-button, #start-button, #restart-button {
     padding: 5px 10px;
     font-size: 16px;
     margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#guess-button:hover, #start-button:hover, #restart-button:hover {
+    background-color: #ddd;
 }
 
 #message {
@@ -38,4 +46,15 @@ body {
 #attempts {
     margin-top: 10px;
     font-size: 18px;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
