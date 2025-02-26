@@ -10,7 +10,7 @@ body {
     direction: rtl;
 }
 
-.game-container {
+.game-container, .credits-container {
     text-align: center;
     background-color: #fff;
     padding: 20px;
@@ -33,7 +33,7 @@ h1 {
     border-radius: 5px;
 }
 
-#guess-button, #start-button, #restart-button {
+#guess-button, #start-button, #restart-button, #credits-button {
     padding: 10px 20px;
     font-size: 18px;
     margin-left: 10px;
@@ -45,7 +45,7 @@ h1 {
     transition: background-color 0.3s;
 }
 
-#guess-button:hover, #start-button:hover, #restart-button:hover {
+#guess-button:hover, #start-button:hover, #restart-button:hover, #credits-button:hover {
     background-color: #218838;
 }
 

@@ -18,6 +18,7 @@ const message = document.getElementById('message');
 const attemptsDisplay = document.getElementById('attempts');
 const restartButton = document.getElementById('restart-button');
 const visitCountDisplay = document.getElementById('visit-count');
+const creditsButton = document.getElementById('credits-button');
 
 function chooseWord(topic) {
     const words = topics[topic];
@@ -77,6 +78,10 @@ guessButton.addEventListener('click', checkGuess);
 restartButton.addEventListener('click', () => {
     topicSelection.style.display = 'block';
     game.style.display = 'none';
+});
+
+creditsButton.addEventListener('click', () => {
+    window.location.href = 'credits.html';
 });
 
 function updateVisitCount() {
