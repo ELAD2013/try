@@ -1,7 +1,16 @@
 const topics = {
-    programming: ['פייתון', 'גאווה', 'קוטלין', 'גאווהסקריפט', 'רובי', 'סוויפט', 'סי', 'סי פלוס פלוס'],
-    animals: ['פיל', 'גירפה', 'קנגורו', 'דולפין', 'אריה', 'נמר', 'זברה', 'קרנף'],
-    countries: ['ברזיל', 'קנדה', 'צרפת', 'גרמניה', 'ישראל', 'איטליה', 'יפן', 'סין']
+    programming: {
+        easy: ['פייתון', 'גאווה', 'קוטלין', 'גאווהסקריפט'],
+        hard: ['רובי', 'סוויפט', 'סי', 'סי פלוס פלוס']
+    },
+    animals: {
+        easy: ['פיל', 'גירפה', 'קנגורו', 'דולפין'],
+        hard: ['אריה', 'נמר', 'זברה', 'קרנף']
+    },
+    countries: {
+        easy: ['ברזיל', 'קנדה', 'צרפת', 'גרמניה'],
+        hard: ['ישראל', 'איטליה', 'יפן', 'סין']
+    }
 };
 
 let word = '';
@@ -20,8 +29,8 @@ const restartButton = document.getElementById('restart-button');
 const visitCountDisplay = document.getElementById('visit-count');
 const creditsButton = document.getElementById('credits-button');
 
-function chooseWord(topic) {
-    const words = topics[topic];
+function chooseWord(topic, difficulty) {
+    const words = topics[topic][difficulty];
     return words[Math.floor(Math.random() * words.length)];
 }
 
@@ -61,7 +70,7 @@ function checkGuess() {
 startButton.addEventListener('click', () => {
     const selectedTopic = document.getElementById('topics').value;
     const difficulty = document.getElementById('difficulty').value;
-    word = chooseWord(selectedTopic);
+    word = chooseWord(selectedTopic, difficulty);
     guessedLetters = new Set();
     attempts = difficulty === 'easy' ? 10 : 6;
     message.textContent = '';

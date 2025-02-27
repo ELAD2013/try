@@ -17,6 +17,9 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     animation: fadeIn 1s ease-in-out;
+    max-width: 600px;
+    width: 100%;
+    margin: 20px;
 }
 
 h1 {
@@ -36,7 +39,7 @@ h1 {
 #guess-button, #start-button, #restart-button, #credits-button {
     padding: 10px 20px;
     font-size: 18px;
-    margin-left: 10px;
+    margin: 10px 0;
     cursor: pointer;
     border: none;
     border-radius: 5px;
